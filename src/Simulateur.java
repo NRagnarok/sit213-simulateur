@@ -1,3 +1,4 @@
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import sources.*;
 import destinations.*;
 import transmetteurs.*;
@@ -65,9 +66,22 @@ public class Simulateur {
       
       	// analyser et récupérer les arguments
       	
-	analyseArguments(args);
-      
-      	      
+	    analyseArguments(args);
+
+	    source = new SourceFixe();
+
+	    destination = new DestinationFinale();
+
+	    transmetteurLogique = new TransmetteurParfait();
+
+	    Sonde SondeLogique1 = new SondeLogique("Test", 200);
+
+
+
+
+
+
+
       	// A compléter
       		
     }
@@ -142,9 +156,9 @@ public class Simulateur {
      * @throws Exception si un problème survient lors de l'exécution
      *
      */ 
-    public void execute() throws Exception {      
+    public void execute() throws Exception {
          
-	//  source.emettre(); 
+	    source.emettre();
       	     	      
     }
    
