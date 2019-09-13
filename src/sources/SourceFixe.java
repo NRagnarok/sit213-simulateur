@@ -14,25 +14,18 @@ public class SourceFixe extends Source {
 
     public SourceFixe() {
         super();
+        try{
+            generer();
+        }catch (Exception e){
+
+        }
     }
 
-    @Override
-    public Information getInformationEmise() {
-        return super.getInformationEmise();
-    }
-
-    @Override
-    public void connecter(DestinationInterface destination) {
-        super.connecter(destination);
-    }
-
-    @Override
-    public void deconnecter(DestinationInterface destination) {
-        super.deconnecter(destination);
-    }
-
-    @Override
-    public void emettre() throws InformationNonConforme {
+    public void generer() throws InformationNonConforme {
+        this.informationGeneree = new Information();
+        for(int i=0; i<1000; i++){
+            this.informationGeneree.add(1);
+        }
         super.emettre();
     }
 }
