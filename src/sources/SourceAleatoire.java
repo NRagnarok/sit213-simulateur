@@ -1,8 +1,8 @@
 package sources;
 
-import information.*;
-import destinations.DestinationInterface;
-import java.util.*;
+import java.util.Random;
+import information.Information;
+import information.InformationNonConforme;
 
 /**
  * blablabla
@@ -10,9 +10,9 @@ import java.util.*;
  * @author Nicolas
  */
 
-public class SourceFixe extends Source {
+public class SourceAleatoire extends Source {
 
-    public SourceFixe() {
+    public SourceAleatoire() {
         super();
         try{
             generer();
@@ -23,8 +23,11 @@ public class SourceFixe extends Source {
 
     public void generer() throws InformationNonConforme {
         this.informationGeneree = new Information();
+
+        Random random = new Random();
+
         for(int i=0; i<1000; i++){
-            this.informationGeneree.add(true);
+            this.informationGeneree.add(random.nextBoolean());
         }
         super.emettre();
     }
