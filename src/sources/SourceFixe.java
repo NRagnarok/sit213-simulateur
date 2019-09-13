@@ -22,9 +22,11 @@ public class SourceFixe extends Source {
     }
 
     public void generer() throws InformationNonConforme {
+        Boolean var = true;
         this.informationGeneree = new Information();
         for(int i=0; i<1000; i++){
-            this.informationGeneree.add(true);
+            var = !var;
+            this.informationGeneree.add(var);
         }
         super.emettre();
     }
