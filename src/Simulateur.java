@@ -24,7 +24,6 @@ import java.io.PrintWriter;
  * Transmetteur(s) et d'une Destination.
  * @author cousin
  * @author prou
- * @author epoulbot
  *
  */
 public class Simulateur {
