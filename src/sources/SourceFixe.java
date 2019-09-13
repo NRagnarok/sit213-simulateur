@@ -7,6 +7,7 @@ import java.util.*;
 /**
  * blablabla
  * @author epoulb
+ * @author Nicolas
  */
 
 public class SourceFixe extends Source {
