@@ -3,6 +3,7 @@ package transmetteurs;
 import destinations.DestinationInterface;
 import information.Information;
 import information.InformationNonConforme;
+import java.util.Iterator;
 
 public class TransmetteurParfait extends Transmetteur {
 
@@ -10,34 +11,19 @@ public class TransmetteurParfait extends Transmetteur {
     @Override
     public void recevoir(Information information) throws InformationNonConforme {
         this.informationRecue = information;
+        transmettre();
     }
 
-    public TransmetteurParfait() {
-        super();
-    }
-
-    @Override
-    public Information getInformationRecue() {
-        return super.getInformationRecue();
-    }
-
-    @Override
-    public Information getInformationEmise() {
-        return super.getInformationEmise();
-    }
-
-    @Override
-    public void connecter(DestinationInterface destination) {
-        super.connecter(destination);
-    }
-
-    @Override
-    public void deconnecter(DestinationInterface destination) {
-        super.deconnecter(destination);
+    public void transmettre()throws InformationNonConforme {
+        this.informationEmise = this.informationRecue;
+        emettre();
     }
 
     @Override
     public void emettre() throws InformationNonConforme {
-
+        Iterator<DestinationInterface> iterator = destinationsConnectees.iterator();
+        while (iterator.hasNext()) {
+            iterator.next().recevoir(this.informationEmise);
+        }
     }
 }
